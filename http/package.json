@@ -5,5 +5,7 @@
     "version": "1.0.0",
     "type": "module",
     "main": "pathToMain",
-    "dependencies": {}
+    "dependencies": {
+        "axios": "^0.21.0"
+    }
 }

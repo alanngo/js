@@ -1,25 +1,26 @@
-import https from "https";
+import axios from 'axios'
+
 
 const URL = `https://ramen-flask-app.herokuapp.com/`
-
-// how to make a get request
-https.get(`${URL}/showAll`, resp =>
+const DATA=
 {
+    "games": ["fortnite", "league of legends", "totally accurate battle simulator"],
+    "computer": "chromebook",
+    "name": 6627
+}
 
-    let data = ``
-    
-    // partial data
-    resp.on('data', chunk =>data+=chunk)
-    
-    // full data
-    resp.on('end', () => console.log(data))
-    
-})
-.on("error", err=> console.log(`Error ${err.message}`))
 
-// how to make a post request
-https.post(`${URL}/showAll`, resp =>
+// post request
+axios.post(`${URL}add`, DATA).then(result =>
 {
-
+    console.log(result.data)
 })
-.on("error", err=> console.log(`Error ${err.message}`))
+.catch((err) => console.log(err));
+
+// get request
+// axios.get(`${URL}showAll`).then((result) => 
+// {
+//     let tmp = result.data
+//     console.log(tmp)
+// }).catch((err) => console.log(err));
+
